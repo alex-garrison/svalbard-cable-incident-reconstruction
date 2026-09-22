@@ -1,0 +1,91 @@
+[project]
+mmsi = 273418680
+cable_id = "cable_a"
+smooth_start_utc = "2022-01-07 02:40:00"
+smooth_end_utc = "2022-01-07 03:20:00"
+analysis_start_utc = "2022-01-07 03:05:00"
+analysis_end_utc = "2022-01-07 03:15:00"
+model_interval_seconds = 1
+
+[failure_interval]
+start_utc = "2022-01-07 03:10:00"
+end_utc = "2022-01-07 03:11:00"
+
+[track_smoothing]
+ais_position_rms_m = 5.0
+max_implied_speed_m_s = 15.0
+
+[ais]
+api_base_url = "https://kystdatahuset.no/ws/api"
+cache_dir = "data/raw/ais/kystdatahuset"
+selection_start_utc = "2022-01-07 02:40:00"
+selection_end_utc = "2022-01-07 03:20:00"
+bbox = [6.0, 76.0, 12.0, 79.0]
+min_speed_knots = 0.0
+request_delay_seconds = 1.0
+max_retries = 4
+
+[cable]
+wms_url = "https://wms.geonorge.no/skwms1/wms.maritim_infrastruktur"
+wms_layer = "kabel_l"
+request_crs = "EPSG:25833"
+resolution_m = 10.0
+accepted_vector_wkb_sha256 = "e003c0d3f79721546effa1955724938410b60aad4102aa4b3a6dec6449c3a069"
+
+[cable_vigilance]
+mmsi = 228416900
+start_utc = "2023-06-23 13:00:00"
+end_utc = "2023-06-29 00:00:00"
+maximum_dwell_speed_knots = 0.5
+density_grid_m = 100.0
+
+[efs]
+url = "https://www.kartverket.no/efs-documents/editions/2023/NoticeToMarinerList_2023_11_EN.XML"
+sha256 = "142ce073028bdefb88ffd532f9f593291eb6bb94c6aa442e45953fed749d9fd5"
+notice_number = 71611
+
+[bathymetry]
+path = "data/raw/bathymetry/gebco_2026_incident.tif"
+opendap_url = "https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/ice_surface_elevation/netcdf/GEBCO_2026.nc"
+west = 6.0
+south = 76.0
+east = 12.0
+north = 79.0
+width = 1440
+height = 720
+array_sha256 = "c6848d1df65180cc62ef2f17bb0b2b7686d6848f455edc503d92790845c24f5a"
+
+[ers]
+directory = "data/raw/ers"
+request_timeout_seconds = 600.0
+max_retries = 4
+
+[[ers.sources]]
+year = 2020
+url = "https://register.fiskeridir.no/vms-ers/ERS/elektronisk-rapportering-ers-2020.zip"
+dca_sha256 = "9f7777f92827296480da36604633988438a6b190c561d7f0c0a01ba571911077"
+
+[[ers.sources]]
+year = 2021
+url = "https://register.fiskeridir.no/vms-ers/ERS/elektronisk-rapportering-ers-2021.zip"
+dca_sha256 = "f90edfc97702bdcd10b198242a8e62a271250ddff506006997b0f702fa81b51e"
+
+[[ers.sources]]
+year = 2022
+url = "https://register.fiskeridir.no/vms-ers/ERS/elektronisk-rapportering-ers-2022.zip"
+dca_sha256 = "5a9bca3a844a20d361c7b7d8ca27d09f1d210acd88ee7fc8eb9dae83c928e096"
+
+[[ers.sources]]
+year = 2023
+url = "https://register.fiskeridir.no/vms-ers/ERS/elektronisk-rapportering-ers-2023.zip"
+dca_sha256 = "dc1e2cea1aaabdd1107fa72af0c861ad02b8a6c7d636230260ff95db6f077ca0"
+
+[gear]
+antenna_offset_m = 25.0
+max_warp_length_m = 3000.0
+depth_offset_m = 0.0
+clump_along_track_offset_m = 0.0
+
+[geometry_grid]
+warp_depth_ratios = [2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0]
+door_spreads_m = [120.0, 220.0, 320.0, 420.0, 520.0]

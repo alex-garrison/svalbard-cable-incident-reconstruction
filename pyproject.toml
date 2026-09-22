@@ -1,0 +1,39 @@
+[project]
+name = "svalbard-cable-incident-reconstruction"
+version = "0.1.0"
+description = "Reproducible reconstruction of the 2022 Svalbard cable incident"
+readme = "README.md"
+authors = [
+    { name = "alex", email = "alex@alexgarrison.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "duckdb>=1.5.2",
+    "netcdf4>=1.7.4",
+    "numpy>=2.3.0",
+    "pandas>=2.3,<3",
+    "pyproj>=3.7.0",
+    "rasterio>=1.5.0",
+    "requests>=2.34.2",
+    "scipy>=1.17.1",
+    "shapely>=2.1.0",
+]
+
+[project.scripts]
+svalbard-cable = "svalbard_cable_incident_reconstruction.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.8.8,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.13",
+    "ty>=0.0.37",
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "C901", "B", "I", "UP", "RUF"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10

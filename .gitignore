@@ -1,0 +1,32 @@
+.DS_Store
+.env
+AGENTS.md
+.cache/
+.uv-cache/
+.venv/
+.ruff_cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+__marimo__/
+
+# AI tooling
+.codex/
+.omo/
+
+# Local data and output
+data/
+db/
+outputs/
+tmp/
+
+# Evidence and source documents
+evidence/
+
+# QGIS
+qgis/*.qgz
+symbology-style.db
+*.qgz~
+*.gpkg-wal
+*.gpkg-shm
